@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #050505 30%, #000 100%);
+  color: #fff;
+  transition: background 0.6s ease;
+}
+ 
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+/* === Lamp === */
+.lamp {
+  position: relative;
+  width: 240px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lamp-head {
+  width: 140px;
+  height: 90px;
+  background: #49a86d;
+  border-radius: 50% 50% 15px 15px;
+  position: relative;
+  box-shadow: inset 0 -10px 0 #2e6f45;
+}
+
+.lamp-eyes {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.eye {
+  width: 12px;
+  height: 12px;
+  background: #111;
+  border-radius: 50%;
+}
+
+.lamp-mouth {
+  width: 35px;
+  height: 15px;
+  background: #111;
+  border-radius: 0 0 15px 15px;
+  margin: 60px auto 0;
+}
+
+.lamp-light {
+  position: absolute;
+  top: 85px;
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 120px solid rgba(255, 255, 160, 0);
+  filter: blur(20px);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.lamp-stand {
+  width: 10px;
+  height: 120px;
+  background: #bbb;
+  margin-top: 10px;
+}
+
+.lamp-base {
+  width: 90px;
+  height: 20px;
+  background: #aaa;
+  border-radius: 50px;
+  margin-top: 5px;
+}
+
+.lamp-cord {
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  width: 3px;
+  height: 60px;
+  background: #eee;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.lamp-cord::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -4px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* === Login Box === */
+
+.login-box h2 {
+  color: #9f9;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-box label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2ecc71;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #27ae60;
+}
+
+.forgot {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #888;
+  cursor: pointer;
+}
+
+/* === Lamp ON Effects === */
+.lamp.on .lamp-light {
+  opacity: 1;
+  border-top-color: rgba(239, 239, 111, 0.4);
+  box-shadow: 0 0 100px 40px rgba(144, 144, 31, 0.15);
+}
+
+.lamp.on .lamp-head {
+  background: #5ccf7d;
+  box-shadow: inset 0 -10px 0 #3d8758, 0 0 50px rgba(255, 255, 180, 0.3);
+}
+
+.lamp.on + .login-box {
+  box-shadow: 0 0 45px rgba(0, 255, 100, 0.8);
+  transform: scale(1.03);
+}
+
+body.on {
+  background: radial-gradient(circle at 50% 40%, #3a3a20 0%, #000 100%);
+  transition: background 0.6s ease;
+}
+
+/* Rope pull animation */
+.pull {
+  transform: translateY(20px);
+}
+@keyframes floatLamp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.lamp {
+  animation: floatLamp 3s ease-in-out infinite;
+}
+
+/* ==== Extra for Links ==== */
+.toggle-text {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.toggle-link {
+  color: #2ecc71;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.toggle-link:hover {
+  color: #27ae60;
+}
+/* ==== Form Curve Animation ==== */
+@keyframes curveInOut {
+  0% {
+    transform: perspective(600px) rotateX(60deg) scale(0.8);
+    opacity: 0;
+    border-radius: 50% 50% 0 0;
+  }
+  50% {
+    transform: perspective(600px) rotateX(0deg) scale(1.05);
+    opacity: 1;
+    border-radius: 20px;
+  }
+  100% {
+    transform: perspective(600px) rotateX(0deg) scale(1);
+    border-radius: 15px;
+  }
+}
+
+.login-box {
+  width: 400px;
+  padding: 30px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.3);
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  animation: curveInOut 1.2s ease forwards;
+}
+
+
+.login-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), transparent);
+  opacity: 0;
+  animation: formGlow 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes formGlow {
+  0% {
+    opacity: 0.2;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+  }
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.5);
+  }
+}
+.lamp.on .lamp-light {
+  opacity: 1;
+  border-top-color: rgba(255, 255, 180, 0.75);
+  box-shadow:
+    0 0 60px 30px rgba(255, 255, 150, 0.5),
+    0 0 150px 80px rgba(255, 255, 120, 0.25),
+    0 0 300px 150px rgba(255, 255, 90, 0.15);
+  filter: blur(30px);
+  transition: all 0.6s ease-in-out;
+}
+@keyframes lampGlowPulse {
+  0% { opacity: 0.9; filter: blur(25px) brightness(1); }
+  50% { opacity: 1; filter: blur(30px) brightness(1.2); }
+  100% { opacity: 0.9; filter: blur(25px) brightness(1); }
+}
+
+.lamp.on .lamp-light {
+  animation: lampGlowPulse 3s ease-in-out infinite;
+}
